@@ -8,6 +8,17 @@ const puppeteer = require('puppeteer');
     path: 'output.pdf',
     format: 'A4',
     printBackground: true,
+    displayHeaderFooter: true,
+    margin: {
+      top: '1px',
+      bottom: '1px', // leave space for footer
+    },
+    footerTemplate: `
+      <div style="font-size:14px; width:100%; text-align:center; color:gray; padding-top:5px;">
+       <span class="pageNumber"></span>
+      </div>
+    `,
+    headerTemplate: `<div></div>` // Empty header
   });
   await browser.close();
 })();
